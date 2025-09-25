@@ -41,6 +41,12 @@ func MakeEcosystem(metadata any) osvecosystem.Parsed {
 		if version == "" {
 			return osvecosystem.FromEcosystem(osvschema.EcosystemAlpine)
 		}
+		if m.OSID == "alpaquita" {
+			return osvecosystem.FromEcosystem(osvschema.EcosystemAlpaquita)
+		}
+		if m.OSID == "bellsoft-hardened-containers" {
+			return osvecosystem.FromEcosystem(osvschema.EcosystemBellSoftHardenedContainers)
+		}
 		return osvecosystem.Parsed{Ecosystem: osvschema.EcosystemAlpine, Suffix: m.TrimDistroVersion(version)}
 
 	case *dpkgmeta.Metadata:

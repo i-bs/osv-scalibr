@@ -43,7 +43,11 @@ func MustParse(str string, ecosystem string) Version {
 func Parse(str string, ecosystem string) (Version, error) {
 	// TODO(#457): support more ecosystems
 	switch ecosystem {
+	case "Alpaquita":
+		return parseAlpineVersion(str)
 	case "Alpine":
+		return parseAlpineVersion(str)
+	case "BellSoft Hardened Containers":
 		return parseAlpineVersion(str)
 	case "ConanCenter":
 		return parseSemverVersion(str), nil

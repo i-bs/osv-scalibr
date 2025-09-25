@@ -39,6 +39,12 @@ func MakeEcosystem(metadata any) string {
 		if version == "" {
 			return "Alpine"
 		}
+		if m.OSID == "alpaquita" {
+			return "Alpaquita:" + m.OSVersionID
+		}
+		if m.OSID == "bellsoft-hardened-containers" {
+			return "BellSoft Hardened Containers:" + m.OSVersionID
+		}
 		return "Alpine:" + m.TrimDistroVersion(version)
 
 	case *dpkgmeta.Metadata:
